@@ -257,41 +257,65 @@ function showLogin(){
   `;
 }
 
-/* SAVE USER */
+/* ================================
+   SAVE USER TO LOCAL STORAGE
+================================ */
 function registerUser(){
-  let user = {
-    fullname: fullName.value,
-    email: email.value,
-    username: regUser.value,
-    password: regPass.value
-  };
+    let fullName = document.getElementById("fullName").value;
+    let email = document.getElementById("email").value;
+    let username = document.getElementById("regUser").value;
+    let password = document.getElementById("regPass").value;
 
-  if(!user.fullname || !user.email || !user.username || !user.password){
-    alert("Please complete all fields.");
-    return;
-  }
+    if(!fullName || !email || !username || !password){
+        alert("Please fill in all fields.");
+        return;
+    }
 
-  localStorage.setItem("userData", JSON.stringify(user));
-  localStorage.setItem("loggedInUser", user.username);
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  window.location.href = "dashboard.html";
+    // check if username already exists
+    if(users.some(u => u.username === username)){
+        alert("Username already exists.");
+        return;
+    }
+
+    users.push({
+        fullName: fullName,
+        email: email,
+        username: username,
+        password: password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration successful!");
+
+    showLogin();
 }
 
-/* LOGIN VALIDATION */
+/* ================================
+   LOGIN VALIDATION
+================================ */
 function loginUser(){
-  let saved = JSON.parse(localStorage.getItem("userData"));
+    let username = document.getElementById("loginUser").value;
+    let password = document.getElementById("loginPass").value;
 
-  if(!saved){
-    alert("No account found. Please register first.");
-    return;
-  }
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-  if(loginUser.value === saved.username && loginPass.value === saved.password){
-    localStorage.setItem("loggedInUser", saved.username);
+    let found = users.find(u => u.username === username && u.password === password);
+
+    if(!found){
+        alert("Invalid username or password.");
+        return;
+    }
+
+    alert("Login successful!");
+
+    // SAVE ACTIVE USER
+    localStorage.setItem("activeUser", JSON.stringify(found));
+
+    // REDIRECT TO DASHBOARD (put your dashboard file here)
     window.location.href = "dashboard.html";
-  } else {
-    alert("Incorrect username or password.");
-  }
 }
 </script>
 
