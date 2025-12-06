@@ -1,0 +1,268 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7f3ef;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6a00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #ff6a00;
+    color: white;
+}
+
+/* MAIN LAYOUT */
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    width: 30%;
+    text-align: center;
+}
+
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.change-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff6a00;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.change-btn:hover {
+    background: #e85f00;
+}
+
+.username {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ff6a00;
+    font-weight: 600;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    width: 65%;
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.right-panel h2 {
+    color: #ff6a00;
+    margin-bottom: 20px;
+}
+
+.status-text {
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* Small BMI Box Under Profile */
+.bmi-widget {
+    margin-top: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.bmi-widget h3 {
+    color: #ff6a00;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.bmi-widget input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.bmi-btn {
+    width: 50%;
+    padding: 5px;
+    background: #ff6a00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.bmi-btn:hover {
+    background: #e85f00;
+}
+
+.bmi-result {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* BMI Panel Fix */
+.bmi-panel {
+    width: 85%;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.bmi-panel h2 {
+    text-align: center;
+    color: #ff6a00;
+    margin-bottom: 15px;
+}
+
+/* Make spacing cleaner */
+.bmi-panel input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px; /* <-- THIS FIXES THE OVERLAP */
+}
+
+.gender-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.bmi-btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff6a00;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px; /* <-- EXTRA CLEAN SPACE */
+}
+
+.bmi-btn:hover {
+    background: #e85f00;
+}
+
+.bmi-result {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.bmi-table-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.bmi-toggle {
+    background: #ff6a00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.bmi-toggle:hover {
+    background: #e65c00;
+}
+
+.bmi-table {
+    margin-top: 15px;
+}
+
+.bmi-table.hidden {
+    display: none;
+}
+
+.bmi-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.bmi-table th,
+.bmi-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.bmi-table th {
+    background: #ff6a00;
+    color: white;
+}
+
+

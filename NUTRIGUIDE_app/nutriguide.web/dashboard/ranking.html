@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranking • NutriGuide</title>
+
+    <link rel="stylesheet" href="ranking.css" />
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">NutriGuide</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- RANKING CONTENT -->
+    <section class="ranking-container">
+        <h1>Top Rankings</h1>
+        <p> Top your NutriGuide score snd take home prizes! </p>
+
+        <div class="ranking-card">
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingData">
+                    <!-- JS inserts rows -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="ranking.js"></script>
+</body>
+</html>

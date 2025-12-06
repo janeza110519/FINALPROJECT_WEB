@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centers Near You • NutriGuide</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="location.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NutriGuide</div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a class="active" href="location.html">Location</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-section">
+        <div class="header-text">
+            <h1><span>Find Centers</span> Near You</h1>
+            <p>Your nutrition journey begins with nearby services ready to help.</p>
+        </div>
+    </header>
+
+    <section class="location-container">
+
+        <div id="map"></div>
+
+        <div class="info-box">
+            <h2>Centers Near You</h2>
+            <p>Click the button to detect the Health Center location.</p>
+            <button id="locateBtn">Locate</button>
+        </div>
+
+    </section>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Page JS -->
+    <script src="location.js"></script>
+
+</body>
+</html>

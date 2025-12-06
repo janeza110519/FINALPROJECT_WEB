@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Success Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="dashboard">
+    <h1>NutriGuide DASHBOARD</h1>
+
+    <div class="content">
+      <div class="chart-section">
+        <h2>Student Performance</h2>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <div class="grades-section">
+        <h3>Student Grades</h3>
+        <table>
+          <tr><th>Course</th><th>Grade</th></tr>
+          <tr><td>Critical Analysis</td><td>2.75</td></tr>
+          <tr><td>Contemporary World</td><td>1.25</td></tr>
+          <tr><td>Physical Education(PATHFIT)</td><td>1.00</td></tr>
+          <tr><td>RSS 3</td><td>Passed</td></tr>
+        </table>
+      </div>
+
+      <div class="average-section">
+        <h3>Average Grade</h3>
+        <div class="circle">B</div>
+      </div>
+
+      <div class="map-section">
+        <h2>Student Location</h2>
+
+
+      <button type="button" id="map-btn">Map</button>
+      </div>
+
+      <footer>
+        © 2025 Castaneda, Malaya, Salapang | All Rights Reserved.
+      </footer>
+    </div>
+  </div>
+
+  <script src="dashb.js"></script>
+</body>
+</html>
