@@ -11,12 +11,71 @@ const centers = [
     [8.372036, 124.856406, "Calanawan", "Rural Health Center"],
     [8.353366, 124.813206, "Damilag", "Health Center"],
     [8.333822, 124.816017, "Agusan Canyon", "Health Center"],
-    [8.41649, 124.80992, "Alae", "Health Center"]
+    [8.41649, 124.80992, "Alae", "Health Center"],
+    [8.3160, 124.8579, "Sankanan", "Health Center"],
+    [8.3732, 124.9538, "Maluko", "Health Center"],
 ];
+
+// Add fixed marker for Manolo Fortich
+// Calanawan
+L.marker([8.372036, 124.856406])
+  .addTo(map)
+  .bindPopup(`
+    <b>Calanawan</b><br>Rural Health Center<br>
+    <img src="./calanawan.jpg" 
+         style="width:150px; margin-top:5px; border-radius:8px;">
+  `);
+
+
+// Damilag
+L.marker([8.353366, 124.813206])
+.addTo(map)
+.bindPopup("<b>Damilag</b><br>Health Center");
+
+// Agusan Canyon (FIXED)
+L.marker([8.333822, 124.816017])
+  .addTo(map)
+  .bindPopup(`
+    <b>Agusan Canyon</b><br>Health Center<br>
+    <img src="./Agusan Canyon.jpg" 
+         style="width:150px; margin-top:5px; border-radius:8px;">
+  `);
+
+// Alae
+L.marker([8.41649, 124.80992])
+.addTo(map)
+  .bindPopup(`
+    <b>Alae</b><br>Health Center<br>
+    <img src="./alae.jpg" 
+         style="width:150px; margin-top:5px; border-radius:8px;">
+  `);
+
+
+// Sankanan
+L.marker([8.3160, 124.8579])
+  .addTo(map)
+  .bindPopup(`
+    <b>Sankanan</b><br>Health Center<br>
+    <img src="./sankanan.jpg" 
+         style="width:150px; margin-top:5px; border-radius:8px;">
+  `);
+
+
+// Maluko
+L.marker([8.3732, 124.9538])
+  .addTo(map)
+  .bindPopup(`
+    <b>Maluko</b><br>Health Center<br>
+    <img src="./maluko.jpg" 
+         style="width:150px; margin-top:5px; border-radius:8px;">
+  `);
+
+
+
 
 // ================= WEATHER SYSTEM =================
 
-// Siguraduhin match ni sa imong HTML IDs
+
 const weatherInput = document.getElementById("cityinput");
 const weatherBtn = document.getElementById("searchWeatherBtn");
 const weatherResult = document.getElementById("weatherResult");
