@@ -37,7 +37,7 @@ L.marker([8.333822, 124.816017])
   .addTo(map)
   .bindPopup(`
     <b>Agusan Canyon</b><br>Health Center<br>
-    <img src="./Agusan Canyon.jpg" 
+    <img src="./agusan Canyon.jpg" 
          style="width:150px; margin-top:5px; border-radius:8px;">
   `);
 

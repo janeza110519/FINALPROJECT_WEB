@@ -22,3 +22,26 @@ rankings.forEach(item => {
     `;
     rankingBody.innerHTML += row;
 });
+
+// ---------- NutriGuide Status Range Logic ----------
+const healthAlert = document.getElementById("healthAlert");
+const alertMessage = document.getElementById("alertMessage");
+
+let showAlert = false;
+
+// Check scores
+rankings.forEach(user => {
+    if (user.points < 60) {
+        showAlert = true;
+    }
+});
+
+// Show message only when below 60
+if (showAlert) {
+    healthAlert.style.display = "block";
+    alertMessage.innerHTML = `
+        🚨 If Your NutriGuide score is below <strong>60</strong>.
+        Please visit the nearest Barangay Health Center
+        for nutrition monitoring and food assistance.
+    `;
+};
