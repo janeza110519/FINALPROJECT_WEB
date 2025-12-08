@@ -8,7 +8,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Health Center Markers
 const centers = [
-    [8.372036, 124.856406, "Calanawan", "Rural Health Center"],
+    [8.372036, 124.856406, "Calanawan", "Rural Health Unit"],
     [8.353366, 124.813206, "Damilag", "Health Center"],
     [8.333822, 124.816017, "Agusan Canyon", "Health Center"],
     [8.41649, 124.80992, "Alae", "Health Center"],
@@ -21,7 +21,7 @@ const centers = [
 L.marker([8.372036, 124.856406])
   .addTo(map)
   .bindPopup(`
-    <b>Calanawan</b><br>Rural Health Center<br>
+    <b>Calanawan</b><br>Rural Health Unit<br>
     <img src="./calanawan.jpg" 
          style="width:150px; margin-top:5px; border-radius:8px;">
   `);
