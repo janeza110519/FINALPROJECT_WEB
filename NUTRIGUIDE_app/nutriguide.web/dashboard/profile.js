@@ -110,9 +110,6 @@ new Chart(ctx, {
         }
     }
 });
-
-
-
 // =========================
 // LOGOUT
 // =========================
@@ -164,3 +161,4 @@ document.querySelector(".bmi-toggle").addEventListener("click", () => {
         ? "Show BMI Classification"
         : "Hide BMI Classification";
 });
+

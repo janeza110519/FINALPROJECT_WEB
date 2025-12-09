@@ -4,56 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranking • NutriGuide</title>
-
     <link rel="stylesheet" href="ranking.css" />
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="logo">NutriGuide</div>
-        <ul class="nav-links">
-            <li><a href="dashboard.html">Home</a></li>
-            <li><a href="location.html">Location</a></li>
-            <li><a href="ranking.html">Ranking</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="login.html">Logout</a></li>
-        </ul>
-    </nav>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="logo">NutriGuide</div>
 
-    <!-- RANKING CONTENT -->
-    <section class="ranking-container">
-        <h1>Top Rankings</h1>
-        
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">☰</div>
 
-        <div class="ranking-card">
-            <table class="ranking-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody id="rankingData">
-                    <!-- JS inserts rows -->
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-<!-- NUTRIGUIDE STATUS & HEALTH ALERT -->
-<div class="health-alert" id="healthAlert">
-    <h3>⚠️ NutriGuide Health Status</h3>
-
-    <ul class="status-range">
-        <li><span class="normal">100–80</span> – Normal</li>
-        <li><span class="risk">79–60</span> – At Risk</li>
-        <li><span class="danger">59 & below</span> – Needs Immediate Attention</li>
+    <ul class="nav-links" id="navLinks">
+        <a href="dashboard.html">Home</a>
+        <a href="location.html">Location</a>
+        <a href="ranking.html" class="active">Ranking</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Logout</a>
     </ul>
+</nav>
 
-    <p class="alert-message" id="alertMessage"></p>
-</div>
+<!-- RANKING CONTENT -->
+<section class="ranking-container">
+    <h1>Top Rankings</h1>
 
-    <script src="ranking.js"></script>
+    <div class="ranking-card">
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody id="rankingData">
+                <!-- JS inserts rows -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- NUTRIGUIDE STATUS & HEALTH ALERT -->
+    <div class="health-alert" id="healthAlert">
+        <h3>⚠️ NutriGuide Health Status</h3>
+
+        <ul class="status-range">
+            <li><span class="normal">100–80</span> – Normal</li>
+            <li><span class="risk">79–60</span> – At Risk</li>
+            <li><span class="danger">59 & below</span> – Needs Immediate Attention</li>
+        </ul>
+
+        <p class="alert-message" id="alertMessage"></p>
+    </div>
+</section>
+
+<script src="ranking.js"></script>
+<script>
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+</script>
 </body>
 </html>
