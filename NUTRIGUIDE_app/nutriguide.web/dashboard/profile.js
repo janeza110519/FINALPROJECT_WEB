@@ -1,7 +1,16 @@
-// LOAD SAVED USER NAME
-let user = JSON.parse(localStorage.getItem("userData"));
-document.getElementById("usernameDisplay").textContent =
-    user?.fullname || "User";
+// =========================
+// LOAD ACTIVE USER (fix)
+// =========================
+let user = JSON.parse(localStorage.getItem("activeUser"));
+
+if (!user) {
+    // No logged-in user → redirect
+    window.location.href = "login.html";
+} else {
+    document.getElementById("usernameDisplay").textContent =
+        user.fullName || user.username || "User";
+}
+
 
 
 // =========================
@@ -34,8 +43,10 @@ document.getElementById("fileInput").addEventListener("change", function () {
     reader.readAsDataURL(file);
 });
 
+
+
 // =========================
-// CHART
+// WEIGHT CHART
 // =========================
 
 const ctx = document.getElementById("weightChart").getContext("2d");
@@ -61,75 +72,62 @@ new Chart(ctx, {
                     weight: 'bold'
                 },
                 color: 'black'
-
             },
-
             legend: {
                 position: "bottom",
                 labels: {
-                    font: {
-                        size: 20
-                    },
+                    font: { size: 20 },
                     color: 'black'
                 }
             },
-        },
-
-        subtitle:{
-            display: true,
-            text: 'Weight',
-            font: {size: 22},
-            color: 'black',
-            padding: {top: 5}
-        },
-
-        legend:{
-            position: "bottom",
-            labels: {
-                font: {size: 20},
-                color: 'black'
+            subtitle: {
+                display: true,
+                text: 'Weight',
+                font: { size: 22 },
+                color: 'black',
+                padding: { top: 5 }
             }
         },
 
-
         scales: {
-            x:{
-                title:{
-                    display:true,
-                    text:'MONTH',
-                    font:{
-                        size:20,
-                        weight:'bold'
-                    },
-                    color:'black'
+            x: {
+                title: {
+                    display: true,
+                    text: 'MONTH',
+                    font: { size: 20, weight: 'bold' },
+                    color: 'black'
                 }
             },
             y: {
                 beginAtZero: true,
-                title:{
-                    display:true,
-                    text:'kilogram',
-                    font:{
-                        size: 20,
-                        weight:'bold'
-                    },
-                    color:'black'
+                title: {
+                    display: true,
+                    text: 'kilogram',
+                    font: { size: 20, weight: 'bold' },
+                    color: 'black'
                 }
             }
         }
     }
 });
 
+
+
 // =========================
 // LOGOUT
 // =========================
 
 document.getElementById("logoutBtn").onclick = () => {
-    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("activeUser"); // ← fixed
     window.location.href = "login.html";
 };
 
-// BMI CALCULATOR SMALL WIDGET
+
+
+// =========================
+// BMI CALCULATOR
+// =========================
+
 document.getElementById("calcBmiBtn").addEventListener("click", () => {
 
     const height = parseFloat(document.getElementById("bmiHeight").value);
@@ -166,7 +164,3 @@ document.querySelector(".bmi-toggle").addEventListener("click", () => {
         ? "Show BMI Classification"
         : "Hide BMI Classification";
 });
-
-
-
-

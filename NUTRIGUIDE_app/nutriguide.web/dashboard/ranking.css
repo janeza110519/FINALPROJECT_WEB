@@ -109,6 +109,7 @@ body {
     background: #fff3e6;
     border-left: 6px solid #ff6a00;
     border-radius: 15px;
+    text-align: center; 
 }
 
 .health-alert h3 {

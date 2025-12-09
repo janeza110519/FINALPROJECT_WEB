@@ -15,7 +15,11 @@
 
     <nav class="navbar">
         <div class="logo">NutriGuide</div>
-        <ul class="nav-links">
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="dashboard.html">Home</a></li>
             <li><a class="active" href="location.html">Location</a></li>
             <li><a href="ranking.html">Ranking</a></li>
@@ -33,23 +37,18 @@
 
     <section class="location-container">
 
+        <!-- MAP -->
         <div id="map"></div>
 
-        <div>
-            <!-- WEATHER CARD -->
-            <div class="weather-card">
-                <h2> 🌤️ NutriWeather </h2> <br>
+        <!-- WEATHER -->
+        <div class="weather-card">
+            <h2>🌤️ NutriWeather</h2>
 
-                <input
-                    type="text"
-                    id="cityinput"
-                    placeholder="Enter city name">
+            <input type="text" id="cityinput" placeholder="Enter city name">
 
-                    <button id="searchWeatherBtn">Search</button>
+            <button id="searchWeatherBtn">Search</button>
 
-                <div id="weatherResult"></div>
-            </div>
-
+            <div id="weatherResult"></div>
         </div>
 
     </section>
@@ -59,6 +58,15 @@
 
     <!-- Page JS -->
     <script src="location.js"></script>
+
+    <script>
+        // Hamburger toggle
+        const burger = document.getElementById("hamburger");
+        const nav = document.getElementById("nav-links");
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("show");
+        });
+    </script>
 
 </body>
 </html>

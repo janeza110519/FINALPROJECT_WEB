@@ -9,7 +9,9 @@ body {
     background: #f7f3ef;
 }
 
-/* NAVBAR */
+/* =============================
+   NAVBAR
+============================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -28,6 +30,7 @@ body {
 .nav-links {
     display: flex;
     gap: 25px;
+    list-style: none;
 }
 
 .nav-links a {
@@ -45,9 +48,19 @@ body {
     color: white;
 }
 
+/* Hamburger */
+.hamburger {
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
 
+/* =============================
+   HEADER SECTION
+============================= */
 .header-section {
-    padding: 50px 60px 20px;
+    padding: 30px 40px 10px;
 }
 
 .header-text h1 {
@@ -66,23 +79,29 @@ body {
     font-size: 18px;
 }
 
-/* MAP + BOX */
+/* =============================
+   MAP + WEATHER LAYOUT
+============================= */
 .location-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 0;
-    gap: 40px;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* responsive wrap */
 }
 
 #map {
-    height: 480px;
+    height: 430px;
     width: 65%;
+    min-width: 300px;
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* WEATHER */
+/* =============================
+   WEATHER CARD
+============================= */
 .weather-card {
     background: white;
     padding: 30px;
@@ -90,11 +109,10 @@ body {
     border-radius: 20px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.weather-input {
-    width: 80%;
+.weather-card input {
+    width: 100%;
     padding: 12px 15px;
     margin-top: 10px;
     border-radius: 10px;
@@ -103,7 +121,7 @@ body {
     font-size: 16px;
 }
 
-.weather-btn {
+.weather-card button {
     margin-top: 15px;
     padding: 10px 20px;
     background: #33a5ff;
@@ -114,7 +132,11 @@ body {
     cursor: pointer;
 }
 
-.weather-result {
+.weather-card button:hover {
+    background: #1c8bd8;
+}
+
+#weatherResult {
     background: #f6f6f6;
     padding: 18px;
     margin-top: 20px;
@@ -122,35 +144,76 @@ body {
     text-align: center;
 }
 
-/* SEARCH BOX */
-.search-container {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    max-width: 420px;
-    margin: 10px auto;
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+    #map {
+        width: 100%;
+    }
 }
 
-.result-box {
-    width: 100%;
-    max-width: 420px;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 16px;
-    background: white;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide nav links */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    /* Toggled menu */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .header-text h1 {
+        font-size: 32px;
+    }
+
+    .header-text p {
+        font-size: 16px;
+    }
+
+    #map {
+        height: 350px;
+        width: 100%;
+    }
+
+    .weather-card {
+        width: 100%;
+    }
 }
 
-.container {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0.03);
-}
+/* SMALL PHONES */
+@media (max-width: 480px) {
 
-div {
-    display: block;
-    unicode-bidi: isolate;
+    .header-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .weather-card {
+        padding: 20px;
+    }
 }

@@ -9,7 +9,9 @@ body {
     background: #f7f3ef;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVIGATION BAR
+========================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -28,6 +30,7 @@ body {
 .nav-links {
     display: flex;
     gap: 25px;
+    list-style: none;
 }
 
 .nav-links a {
@@ -45,7 +48,17 @@ body {
     color: white;
 }
 
-/* HERO SECTION */
+/* HAMBURGER MENU (Hidden on Desktop) */
+.hamburger {
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -73,53 +86,9 @@ body {
     color: #666;
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.btn-primary {
-    background: #ff6a00;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-secondary {
-    background: white;
-    border: 2px solid #ff6a00;
-    color: #ff6a00;
-    padding: 12px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* HERO IMAGE */
-.hero-img {
-    position: relative;
-}
-
-.hero-img img {
-    width: 380px;
-    border-radius: 50%;
-}
-
-.discount {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: #79d861;
-    color: white;
-    padding: 15px 20px;
-    font-weight: 700;
-    border-radius: 50%;
-}
-
-/* FOOD SLIDER */
+/* =========================
+   FOOD CARDS
+========================= */
 .food-slider {
     display: flex;
     align-items: center;
@@ -141,8 +110,8 @@ body {
 }
 
 .food-card img {
-    width: 150px;     /* or your size */
-    height: 150px;    /* match width */
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -151,5 +120,81 @@ body {
 .food-card.green { background: #7fd97a; }
 .food-card.purple { background: #8f80ff; }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
 
+    .hero-text {
+        max-width: 100%;
+    }
 
+    .cards-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide nav links until clicked */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    /* Show when toggled */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .food-card {
+        width: 150px;
+    }
+
+    .food-card img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
