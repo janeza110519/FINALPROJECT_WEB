@@ -23,7 +23,7 @@ rankings.forEach(item => {
     rankingBody.innerHTML += row;
 });
 
-// ---------- NutriGuide Status Range Logic ----------
+//NutriGuide Status Range Logic
 const healthAlert = document.getElementById("healthAlert");
 const alertMessage = document.getElementById("alertMessage");
 

@@ -1,6 +1,5 @@
-// =========================
-// LOAD ACTIVE USER (fix)
-// =========================
+//LOAD ACTIVE USER 
+
 let user = JSON.parse(localStorage.getItem("activeUser"));
 
 if (!user) {
@@ -12,11 +11,7 @@ if (!user) {
 }
 
 
-
-// =========================
-// PROFILE PICTURE SYSTEM
-// =========================
-
+//PROFILE PICTURE 
 // Load saved image
 let savedImage = localStorage.getItem("profileImage");
 if (savedImage) {
@@ -28,7 +23,7 @@ document.getElementById("changePicBtn").onclick = () => {
     document.getElementById("fileInput").click();
 };
 
-// Convert image → Base64 → save
+// Convert image_save
 document.getElementById("fileInput").addEventListener("change", function () {
     const file = this.files[0];
     if (!file) return;
@@ -45,9 +40,8 @@ document.getElementById("fileInput").addEventListener("change", function () {
 
 
 
-// =========================
-// WEIGHT CHART
-// =========================
+
+//WEIGHT CHART
 
 const ctx = document.getElementById("weightChart").getContext("2d");
 
@@ -110,10 +104,8 @@ new Chart(ctx, {
         }
     }
 });
-// =========================
-// LOGOUT
-// =========================
 
+// LOGOUT
 document.getElementById("logoutBtn").onclick = () => {
     localStorage.removeItem("activeUser"); // ← fixed
     window.location.href = "login.html";
@@ -121,10 +113,8 @@ document.getElementById("logoutBtn").onclick = () => {
 
 
 
-// =========================
-// BMI CALCULATOR
-// =========================
 
+// BMI CALCULATOR
 document.getElementById("calcBmiBtn").addEventListener("click", () => {
 
     const height = parseFloat(document.getElementById("bmiHeight").value);

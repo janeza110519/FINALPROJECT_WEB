@@ -10,21 +10,22 @@
 
 <!-- NAVIGATION -->
 <nav class="navbar">
-    <div class="logo">NutriGuide</div>
-
-    <!-- HAMBURGER -->
-    <div class="hamburger" id="hamburger">☰</div>
+    <div class="left-nav">
+        <div class="hamburger" id="hamburger">☰</div>
+        <div class="logo">NutriGuide</div>
+    </div>
 
     <ul class="nav-links" id="navLinks">
-        <a href="dashboard.html">Home</a>
-        <a href="location.html">Location</a>
-        <a href="ranking.html" class="active">Ranking</a>
-        <a href="profile.html">Profile</a>
-        <a href="login.html">Logout</a>
+        <li><a href="dashboard.html">Home</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a id="logoutBtn" href="#">Logout</a></li>
     </ul>
 </nav>
 
-<!-- RANKING CONTENT -->
+
+<!--RANKING CONTENT-->
 <section class="ranking-container">
     <h1>Top Rankings</h1>
 
@@ -37,7 +38,7 @@
                 </tr>
             </thead>
             <tbody id="rankingData">
-                <!-- JS inserts rows -->
+
             </tbody>
         </table>
     </div>
@@ -57,14 +58,10 @@
 </section>
 
 <script src="ranking.js"></script>
-<script>
-    // Hamburger toggle
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("navLinks");
-
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
+    <script>
+document.getElementById("hamburger").addEventListener("click", function() {
+    document.getElementById("navLinks").classList.toggle("active");
+});
 </script>
 </body>
 </html>
