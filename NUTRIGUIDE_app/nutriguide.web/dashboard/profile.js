@@ -1,29 +1,23 @@
-//LOAD ACTIVE USER 
-
+// LOAD ACTIVE USER
 let user = JSON.parse(localStorage.getItem("activeUser"));
 
 if (!user) {
-    // No logged-in user → redirect
     window.location.href = "login.html";
 } else {
     document.getElementById("usernameDisplay").textContent =
         user.fullName || user.username || "User";
 }
 
-
-//PROFILE PICTURE 
-// Load saved image
+// LOAD PROFILE IMAGE
 let savedImage = localStorage.getItem("profileImage");
 if (savedImage) {
     document.getElementById("profilePic").src = savedImage;
 }
 
-// Upload button
 document.getElementById("changePicBtn").onclick = () => {
     document.getElementById("fileInput").click();
 };
 
-// Convert image_save
 document.getElementById("fileInput").addEventListener("change", function () {
     const file = this.files[0];
     if (!file) return;
@@ -31,20 +25,14 @@ document.getElementById("fileInput").addEventListener("change", function () {
     const reader = new FileReader();
     reader.onload = function (e) {
         const base64 = e.target.result;
-
         document.getElementById("profilePic").src = base64;
         localStorage.setItem("profileImage", base64);
     };
     reader.readAsDataURL(file);
 });
 
-
-
-
-//WEIGHT CHART
-
+// CHART
 const ctx = document.getElementById("weightChart").getContext("2d");
-
 new Chart(ctx, {
     type: "bar",
     data: {
@@ -60,45 +48,31 @@ new Chart(ctx, {
         plugins: {
             title: {
                 display: true,
-                text: 'NutriChart',
-                font: {
-                    size: 30,
-                    weight: 'bold'
-                },
-                color: 'black'
+                text: "NutriChart",
+                font: { size: 30, weight: "bold" },
+                color: "black"
             },
             legend: {
                 position: "bottom",
-                labels: {
-                    font: { size: 20 },
-                    color: 'black'
-                }
-            },
-            subtitle: {
-                display: true,
-                text: 'Weight',
-                font: { size: 22 },
-                color: 'black',
-                padding: { top: 5 }
+                labels: { font: { size: 18 }, color: "black" }
             }
         },
-
         scales: {
             x: {
                 title: {
                     display: true,
-                    text: 'MONTH',
-                    font: { size: 20, weight: 'bold' },
-                    color: 'black'
+                    text: "MONTH",
+                    font: { size: 20, weight: "bold" },
+                    color: "black"
                 }
             },
             y: {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'kilogram',
-                    font: { size: 20, weight: 'bold' },
-                    color: 'black'
+                    text: "kilogram",
+                    font: { size: 20, weight: "bold" },
+                    color: "black"
                 }
             }
         }
@@ -107,48 +81,40 @@ new Chart(ctx, {
 
 // LOGOUT
 document.getElementById("logoutBtn").onclick = () => {
-    localStorage.removeItem("activeUser"); // ← fixed
+    localStorage.removeItem("activeUser");
     window.location.href = "login.html";
 };
 
-
-
-
 // BMI CALCULATOR
 document.getElementById("calcBmiBtn").addEventListener("click", () => {
+    const h = parseFloat(document.getElementById("bmiHeight").value);
+    const w = parseFloat(document.getElementById("bmiWeight").value);
 
-    const height = parseFloat(document.getElementById("bmiHeight").value);
-    const weight = parseFloat(document.getElementById("bmiWeight").value);
+    if (isNaN(h) || isNaN(w)) return alert("Enter valid height & weight.");
 
-    if (isNaN(height) || isNaN(weight)) {
-        alert("Please enter valid height and weight.");
-        return;
-    }
-
-    const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
-
+    const bmi = (w / ((h / 100) ** 2)).toFixed(1);
     let status = "";
 
     if (bmi < 16) status = "Severe Thinness";
-    else if (bmi >= 16 && bmi < 17) status = "Moderate Thinness";
-    else if (bmi >= 17 && bmi < 18.5) status = "Mild Thinness";
-    else if (bmi >= 18.5 && bmi < 25) status = "Normal";
-    else if (bmi >= 25 && bmi < 30) status = "Overweight";
-    else if (bmi >= 30 && bmi < 35) status = "Obese Class I";
-    else if (bmi >= 35 && bmi < 40) status = "Obese Class II";
-    else if (bmi >= 40) status = "Obese Class III";
+    else if (bmi < 17) status = "Moderate Thinness";
+    else if (bmi < 18.5) status = "Mild Thinness";
+    else if (bmi < 25) status = "Normal";
+    else if (bmi < 30) status = "Overweight";
+    else if (bmi < 35) status = "Obese Class I";
+    else if (bmi < 40) status = "Obese Class II";
+    else status = "Obese Class III";
 
-    document.getElementById("bmiResult").textContent =
-        `BMI = ${bmi} (${status})`;
+    document.getElementById("bmiResult").innerHTML =
+        `<h3>BMI = ${bmi}</h3><p>Status: ${status}</p>`;
 });
 
+// SHOW/HIDE BMI TABLE
 document.querySelector(".bmi-toggle").addEventListener("click", () => {
     const table = document.querySelector(".bmi-table");
     table.classList.toggle("hidden");
 
     document.querySelector(".bmi-toggle").textContent =
         table.classList.contains("hidden")
-        ? "Show BMI Classification"
-        : "Hide BMI Classification";
+            ? "Show BMI Classification"
+            : "Hide BMI Classification";
 });
-
