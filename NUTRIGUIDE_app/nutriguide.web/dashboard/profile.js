@@ -118,3 +118,48 @@ document.querySelector(".bmi-toggle").addEventListener("click", () => {
             ? "Show BMI Classification"
             : "Hide BMI Classification";
 });
+
+
+// =========================
+// ENCAPSULATION EXAMPLE
+// (Added without affecting output)
+// =========================
+
+class UserProfileInfo {
+    #name;       // private attribute
+    #email;      // private attribute
+
+    constructor(name, email) {
+        this.#name = name;
+        this.#email = email;
+    }
+
+    // Getter for name
+    getName() {
+        return this.#name;
+    }
+
+    // Setter for name
+    setName(newName) {
+        if (newName && newName.length > 0) {
+            this.#name = newName;
+        }
+    }
+
+    // Getter for email
+    getEmail() {
+        return this.#email;
+    }
+
+    // Setter for email
+    setEmail(newEmail) {
+        if (newEmail && newEmail.includes("@")) {
+            this.#email = newEmail;
+        }
+    }
+}
+
+// Example instance (does not affect website)
+const dummyProfile = new UserProfileInfo("Default User", "email@example.com");
+console.log(dummyProfile.getName());
+
