@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sliding Login & Registration</title>
+
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d7e3ff;
+}
+
+/* MAIN WRAPPER */
+.container{
+  position: relative;
+  width: 850px;
+  height: 500px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+}
+
+/* BLUE PANEL */
+.blue-panel{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #ff6a00;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  border-radius: 0 80px 80px 0;
+  transition: .6s ease-in-out;
+}
+
+.blue-panel h2{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.blue-panel p{
+  opacity: .9;
+  margin-bottom: 20px;
+}
+
+.blue-panel button{
+  padding: 12px 35px;
+  background: none;
+  border: 2px solid white;
+  color: #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.blue-panel button:hover{
+  background: white;
+  color: #ff6a00;
+}
+
+/* FORMS WRAPPER */
+.form-box{
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 60px;
+  color: #333;
+  transition: .6s ease-in-out;
+  z-index: 2;
+}
+
+.form-box h2{
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.input-group{
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.input-group input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button{
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #ff6a00;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #ff6a00;
+}
+
+.small-text{
+  margin-top: 12px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+}
+
+.social-icons{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons div{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* SLIDE TO REGISTER */
+.container.active .form-box{
+  right: 50%;
+}
+
+/* BLUE PANEL SLIDES RIGHT */
+.container.active .blue-panel{
+  left: 50%;
+  border-radius: 80px 0 0 80px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainBox">
+
+  <!-- BLUE PANEL -->
+  <div class="blue-panel" id="panelText">
+      <h2>Welcome Back!</h2>
+      <p>Don't have an account?</p>
+      <button onclick="showLogin()">Register</button>
+  </div>
+
+  
+
+  <!-- FORM BOX -->
+  <div class="form-box" id="formArea">
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+          <h2>Login</h2>
+          <div class="input-group">
+              <input type="text" id="loginUser" placeholder="Username">
+          </div>
+          <div class="input-group">
+              <input type="password" id="loginPass" placeholder="Password">
+          </div>
+
+          <p class="small-text">Forgot Password?</p>
+          <button onclick="loginUser()">Login</button>
+
+          <p class="small-text" onclick="showRegister()">Don’t have an account? Register</p>
+          
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" style="display:none;">
+          <h2>Registration</h2>
+          <div class="input-group">
+              <input type="text" id="fullName" placeholder="Full Name">
+          </div>
+          <div class="input-group">
+              <input type="email" id="email" placeholder="Email">
+          </div>
+          <div class="input-group">
+              <input type="text" id="regUser" placeholder="Username">
+          </div>
+          <div class="input-group">
+              <input type="password" id="regPass" placeholder="Password">
+          </div>
+
+          <button onclick="registerUser()">Register</button>
+          <p class="small-text" onclick="showLogin()">Already have an account? Login</p>
+
+          
+      </div>
+
+  </div>
+
+</div>
+
+<script>
+let box = document.getElementById("mainBox");
+let loginForm = document.getElementById("loginForm");
+let registerForm = document.getElementById("registerForm");
+let panel = document.getElementById("panelText");
+
+/* SWITCH TO REGISTER */
+function showRegister(){
+  box.classList.add("active");
+  loginForm.style.display = "none";
+  registerForm.style.display = "block";
+
+  panel.innerHTML = `
+      <h2>Hello, Welcome!</h2>
+      <p>Already have an account?</p>
+      <button onclick="showLogin()">Login</button>
+  `;
+}
+
+/* SWITCH TO LOGIN */
+function showLogin(){
+  box.classList.remove("active");
+  registerForm.style.display = "none";
+  loginForm.style.display = "block";
+
+  panel.innerHTML = `
+      <h2>Welcome Back!</h2>
+      <p>Don't have an account?</p>
+      <button onclick="showRegister()">Register</button>
+  `;
+}
+
+/* ================================
+   SAVE USER TO LOCAL STORAGE
+================================ */
+function registerUser(){
+    let fullName = document.getElementById("fullName").value;
+    let email = document.getElementById("email").value;
+    let username = document.getElementById("regUser").value;
+    let password = document.getElementById("regPass").value;
+
+    if(!fullName || !email || !username || !password){
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // check if username already exists
+    if(users.some(u => u.username === username)){
+        alert("Username already exists.");
+        return;
+    }
+
+    users.push({
+        fullName: fullName,
+        email: email,
+        username: username,
+        password: password
+    });
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration successful!");
+
+    showLogin();
+}
+
+/* ================================
+   LOGIN VALIDATION
+================================ */
+function loginUser(){
+    let username = document.getElementById("loginUser").value;
+    let password = document.getElementById("loginPass").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let found = users.find(u => u.username === username && u.password === password);
+
+    if(!found){
+        alert("Invalid username or password.");
+        return;
+    }
+
+    alert("Login successful!");
+
+    // SAVE ACTIVE USER
+    localStorage.setItem("activeUser", JSON.stringify(found));
+
+    // REDIRECT TO DASHBOARD
+    window.location.href = "dashboard.html";
+}
+</script>
+
+</body>
+</html>

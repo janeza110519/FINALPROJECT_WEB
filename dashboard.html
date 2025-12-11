@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard • NutriGuide</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NutriGuide</div>
+
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+    <div class="hero-text">
+        <h1><span>Healthy Eating</span> is an Important Part of Lifestyle</h1>
+        <p>We are always here to guide your nutrition journey.</p>
+    </div>
+
+    <div class="hero-image">
+        <img src="background2.jpg" alt="Healthy Image">
+    </div>
+</header>
+
+    <section class="food-slider">
+        <div class="cards-container">
+
+            <div class="food-card orange">
+                <img src="bangus.jpg" alt="">
+                <h3>Sinabawang Bangus</h3>
+            </div>
+
+            <div class="food-card green">
+                <img src="monggo.jpg" alt="">
+                <h3>Monggo</h3>
+            </div>
+
+            <div class="food-card purple">
+                <img src="manok.jpg" alt="">
+                <h3>Tinolang Manok</h3>
+            </div>
+
+            <div class="food-card yellow">
+                <img src="ginataang gulay.jpg" alt="">
+                <h3>Ginataang Gulay</h3>
+            </div>
+
+            <div class="food-card brown">
+                <img src="piniritong isda.jpg" alt="">
+                <h3>Pritong Isda</h3>
+            </div>
+
+            <div class="food-card orange">
+                <img src="pinakbet.jpg" alt="">
+                <h3>Pinakbet</h3>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
+
+</body>
+</html>
