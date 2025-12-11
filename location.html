@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centers Near You • NutriGuide</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="location.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">NutriGuide</div>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a class="active" href="location.html">Location</a></li>
+            <li><a href="ranking.html">Ranking</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-section">
+        <div class="header-text">
+            <h1><span>Find Centers</span> Near You</h1>
+            <p>Your nutrition journey begins with nearby services ready to help.</p>
+        </div>
+    </header>
+
+    <section class="location-container">
+
+        <!-- MAP -->
+        <div id="map"></div>
+
+        <!-- WEATHER -->
+        <div class="weather-card">
+            <h2>🌤️ NutriWeather</h2>
+
+            <input type="text" id="cityinput" placeholder="Enter city name">
+
+            <button id="searchWeatherBtn">Search</button>
+
+            <div id="weatherResult"></div>
+        </div>
+
+    </section>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Page JS -->
+    <script src="location.js"></script>
+
+    <script>
+        // Hamburger toggle
+        const burger = document.getElementById("hamburger");
+        const nav = document.getElementById("nav-links");
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("show");
+        });
+    </script>
+
+</body>
+</html>

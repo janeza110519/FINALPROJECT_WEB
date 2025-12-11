@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7f3ef;
+}
+
+/* =============================
+   NAVBAR
+============================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6a00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    background: #ff6a00;
+    color: white;
+}
+
+/* Hamburger */
+.hamburger {
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
+
+/* =============================
+   HEADER SECTION
+============================= */
+.header-section {
+    padding: 30px 40px 10px;
+}
+
+.header-text h1 {
+    font-size: 42px;
+    color: #333;
+}
+
+.header-text h1 span {
+    color: #ff6a00;
+    font-weight: 700;
+}
+
+.header-text p {
+    margin-top: 10px;
+    color: #666;
+    font-size: 18px;
+}
+
+/* =============================
+   MAP + WEATHER LAYOUT
+============================= */
+.location-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* responsive wrap */
+}
+
+#map {
+    height: 430px;
+    width: 65%;
+    min-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* =============================
+   WEATHER CARD
+============================= */
+.weather-card {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.weather-card input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid #a9e3d9;
+    outline: none;
+    font-size: 16px;
+}
+
+.weather-card button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #33a5ff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.weather-card button:hover {
+    background: #1c8bd8;
+}
+
+#weatherResult {
+    background: #f6f6f6;
+    padding: 18px;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+
+/* TABLET */
+@media (max-width: 992px) {
+    #map {
+        width: 100%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide nav links */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    /* Toggled menu */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .header-text h1 {
+        font-size: 32px;
+    }
+
+    .header-text p {
+        font-size: 16px;
+    }
+
+    #map {
+        height: 350px;
+        width: 100%;
+    }
+
+    .weather-card {
+        width: 100%;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+    .header-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .weather-card {
+        padding: 20px;
+    }
+}

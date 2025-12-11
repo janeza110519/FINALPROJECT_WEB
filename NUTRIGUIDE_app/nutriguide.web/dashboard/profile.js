@@ -163,3 +163,13 @@ class UserProfileInfo {
 const dummyProfile = new UserProfileInfo("Default User", "email@example.com");
 console.log(dummyProfile.getName());
 
+
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+
+

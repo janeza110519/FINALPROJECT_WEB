@@ -10,19 +10,19 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="left-nav">
+ <nav class="navbar">
         <div class="logo">NutriGuide</div>
-    </div>
 
-    <ul class="nav-links">
-        <a href="dashboard.html">Home</a>
-        <a href="location.html">Location</a>
-        <a href="ranking.html">Ranking</a>
-        <a href="profile.html" class="active">Profile</a>
-        <a href="#" id="logoutBtn">Logout</a>
-    </ul>
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">☰</div>
+
+        <ul class="nav-links" id="nav-links">
+            <a href="dashboard.html">Home</a>
+            <a class="active" href="location.html">Location</a>
+            <a href="ranking.html">Ranking</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Logout</a>
+        </ul>
 </nav>
 
 <!-- MAIN PAGE WRAPPER -->
@@ -95,6 +95,14 @@
     </div>
 
 </section>
+<script>
+        // Hamburger toggle
+        const burger = document.getElementById("hamburger");
+        const nav = document.getElementById("nav-links");
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("show");
+        });
+    </script>
 
 <script src="profile.js"></script>
 

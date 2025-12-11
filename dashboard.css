@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7f3ef;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6a00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #ff6a00;
+    color: white;
+}
+
+/* HAMBURGER MENU (Hidden on Desktop) */
+.hamburger {
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+    user-select: none;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 60px;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    line-height: 60px;
+}
+
+.hero-text h1 span {
+    color: #ff6a00;
+    font-weight: 700;
+}
+
+.hero-text p {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #666;
+}
+
+/* =========================
+   FOOD CARDS
+========================= */
+.food-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.cards-container {
+    display: flex;
+    gap: 25px;
+}
+
+.food-card {
+    width: 180px;
+    padding: 20px;
+    border-radius: 22px;
+    text-align: center;
+    color: white;
+}
+
+.food-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.food-card.orange { background: #ff9c57; }
+.food-card.green { background: #7fd97a; }
+.food-card.purple { background: #8f80ff; }
+.food-card.yellow { background: #cacd2d; }
+.food-card.brown { background: #8d5c2b; }
+.food-card.orange { background: #dd720d; }
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .cards-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+        
+    }
+
+    /* Hide nav links until clicked */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    /* Show when toggled */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .food-card {
+        width: 150px;
+    }
+
+    .food-card img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    overflow: hidden;
+}
+
+/* Text stays on the left */
+.hero-text {
+    width: 50%;
+}
+
+/* Blended background-style image */
+.hero-image img {
+    position: absolute;
+    top: 20px;           /* slight spacing from top */
+    right: 20px;         /* slight spacing from right */
+    width: 400px;        /* smaller size */
+    opacity: 0.80;       /* makes it blend */
+    mix-blend-mode: multiply; /* blending effect */
+    z-index: -1;         /* send behind text */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .hero-image img {
+        position: static;
+        width: 300px;
+        opacity: 0.50;
+        filter: none;
+        mix-blend-mode: normal;
+        z-index: 1;
+        margin-top: 20px;
+    }
+}

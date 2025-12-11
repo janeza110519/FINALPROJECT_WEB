@@ -1,0 +1,220 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f7f3ef;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff6a00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #ff6a00;
+    color: white;
+}
+
+/* RANKING SECTION */
+.ranking-container {
+    padding: 50px 60px;
+}
+
+.ranking-container h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ff6a00;
+    margin-bottom: 25px;
+}
+
+/* CARD STYLE */
+.ranking-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+/* TABLE */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.ranking-table th {
+    background: #ff9c57;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    text-align: left;
+}
+
+.ranking-table td {
+    padding: 15px;
+    background: #fff7f1;
+    border-bottom: 2px solid #ffe2cc;
+}
+
+.ranking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.ranking-table tr:hover td {
+    background: #ffe9d7;
+}
+
+.container{
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+
+/* NutriGuide Health Alert */
+.health-alert {
+    display: none;
+    margin-top: 35px;
+    padding: 25px;
+    background: #fff3e6;
+    border-left: 6px solid #ff6a00;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.health-alert h3 {
+    margin-bottom: 15px;
+    color: #ff6a00;
+}
+
+/* Status Range List */
+.status-range {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.status-range li {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Color Labels */
+.normal {
+    color: green;
+    font-weight: 700;
+}
+
+.risk {
+    color: #e6a700;
+    font-weight: 700;
+}
+
+.danger {
+    color: red;
+    font-weight: 700;
+}
+
+.alert-message {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #b00000;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* normal nav links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* =========================
+   HAMBURGER MENU
+========================= */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 880px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: white;
+        width: 200px;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+    }
+}
+
+

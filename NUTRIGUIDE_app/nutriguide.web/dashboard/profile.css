@@ -203,3 +203,87 @@ body {
 .bmi-panel input {
     text-align: left;
 }
+
+
+/* =========================
+   HAMBURGER MENU
+========================= */
+/* HAMBURGER (LEFT SIDE) */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+@media (max-width: 992px) {
+    #map {
+        width: 100%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide nav links */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 15px;
+        gap: 10px;
+    }
+
+    /* Toggled menu */
+    .nav-links.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .header-text h1 {
+        font-size: 32px;
+    }
+
+    .header-text p {
+        font-size: 16px;
+    }
+
+    #map {
+        height: 350px;
+        width: 100%;
+    }
+
+    .weather-card {
+        width: 100%;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 480px) {
+
+    .header-text h1 {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .weather-card {
+        padding: 20px;
+    }
+}
+
+
+
